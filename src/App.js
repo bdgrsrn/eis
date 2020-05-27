@@ -2,6 +2,7 @@ import React from 'react';
 
 
 import { useTranslation } from 'react-i18next';
+import SysRibbonMenu from './components/SysRibbonMenu';
 
 function App() {
 
@@ -12,7 +13,19 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <>
+      <SysRibbonMenu  />
+    </>
+  );
+}
+
+export default App;
+
+
+
+/*
+
+ <div className="App">
     <nav style={{width:'100%',padding: '2rem 0', backgroundColor:'gray'}}>
     <button onClick={()=>handleClick('mn')}>
     Mongolia
@@ -36,9 +49,12 @@ function App() {
           {t('Why.1')}
         </p>
       
+       
       </header>
+      <div className="container">
+      
+      </div>
+      
     </div>
-  );
-}
 
-export default App;
+*/
