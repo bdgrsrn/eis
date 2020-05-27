@@ -2,6 +2,9 @@ import React from 'react'
 import { useTranslation } from 'react-i18next';
 import {useSelector, useDispatch} from 'react-redux';
 import {toggleHover, clickTab} from '../../actions';
+import RibbonHome from './RibbonHome';
+import RibbonView from './RibbonView';
+import RibbonShare from './RibbonShare';
 
 
 function SysRibbonMenu(props) {
@@ -26,17 +29,39 @@ function SysRibbonMenu(props) {
                         <li><a href="#">{t('File.1-1')}</a></li>
                         <li><a href="#">{t('File.1-2')}</a></li>
                         <li><a href="#">{t('File.1-3')}</a></li>
+                        
                     </ul>
-
                 </li>
-                <li><a data-toggle="tab"  onClick={() => dispatch(clickTab("Home"))}>{t('Home.1')}</a></li>
+                <li className="active"><a data-toggle="tab"  onClick={() => dispatch(clickTab("Home"))}>{t('Home.1')}</a></li>
                 <li ><a data-toggle="tab"  onClick={() => dispatch(clickTab("Share"))}>{t('Share.1')}</a></li>
                 <li><a data-toggle="tab" onClick={() => dispatch(clickTab("View"))}>{t('View.1')}</a></li>
+                <li style={{textAlign:'right'}}><a data-toggle="tab" onClick={() => dispatch(clickTab("."))}>.</a></li>
             </ul>
 
-
             <div className="tab-content">
-                <div id="home" className="tab-pane fade in active">
+                {isH.activeTabName==='Home'&&<div>
+                  <RibbonHome />
+                </div>}
+                {isH.activeTabName==='Share'&&<div>
+                
+                <RibbonShare />
+                </div>}
+                {isH.activeTabName==='View'&&<div>
+                <RibbonView />
+                </div>}
+            </div>
+        </div>
+    )
+}
+
+
+export default SysRibbonMenu;
+
+
+
+/*
+
+<div id="home" className="tab-pane fade in active">
                     <h3>HOME</h3>
                     <button onClick={() => handleClick('mn')}>
                         Mongolia
@@ -68,10 +93,5 @@ function SysRibbonMenu(props) {
                     <h3>Menu 3</h3>
                     <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                 </div>
-            </div>
-        </div>
-    )
-}
 
-
-export default SysRibbonMenu;
+*/

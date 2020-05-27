@@ -1,6 +1,6 @@
 const initialState={
     isHoveMenu:false,
-    activeTabName:null,
+    activeTabName:'Home',
 
 }
 
