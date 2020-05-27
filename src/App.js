@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 
 import { useTranslation } from 'react-i18next';
 
@@ -15,6 +14,9 @@ function App() {
   return (
     <div className="App">
     <nav style={{width:'100%',padding: '2rem 0', backgroundColor:'gray'}}>
+    <button onClick={()=>handleClick('mn')}>
+    Mongolia
+    </button>
     <button onClick={()=>handleClick('en')}>
     English
     </button>
@@ -26,7 +28,7 @@ function App() {
     </button>
     </nav>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+       
         <p>
           {t('Thanks.1')}
         </p>
