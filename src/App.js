@@ -1,20 +1,16 @@
 import React from 'react';
 
 
-import { useTranslation } from 'react-i18next';
+
 import SysRibbonMenu from './components/SysRibbonMenu';
 
 function App() {
 
-  const { t, i18n } = useTranslation();
 
-  function handleClick(lang){
-    i18n.changeLanguage(lang);
-  }
 
   return (
     <>
-      <SysRibbonMenu  />
+      <SysRibbonMenu activeMnu={"Home"} />
     </>
   );
 }
