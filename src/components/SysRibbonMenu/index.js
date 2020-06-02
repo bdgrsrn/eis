@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import {useSelector, useDispatch} from 'react-redux';
-import {toggleHover, clickTab} from '../../actions';
+import {toggleHover, clickTab} from '../../store/actions';
 import RibbonHome from './RibbonHome';
 import RibbonView from './RibbonView';
 import RibbonShare from './RibbonShare';
@@ -32,10 +32,10 @@ function SysRibbonMenu(props) {
                         
                     </ul>
                 </li>
-                <li className="active"><a data-toggle="tab"  onClick={() => dispatch(clickTab("Home"))}>{t('Home.1')}</a></li>
-                <li ><a data-toggle="tab"  onClick={() => dispatch(clickTab("Share"))}>{t('Share.1')}</a></li>
-                <li><a data-toggle="tab" onClick={() => dispatch(clickTab("View"))}>{t('View.1')}</a></li>
-                <li style={{textAlign:'right'}}><a data-toggle="tab" onClick={() => dispatch(clickTab("."))}>.</a></li>
+                <li className={ isH.activeTabName==='Home' ? 'active': null} ><a data-toggle="tab"  onClick={() => dispatch(clickTab("Home"))}>{t('Home.1')}</a></li>
+                <li  className={ isH.activeTabName==='Share' ? 'active': null} ><a data-toggle="tab"  onClick={() => dispatch(clickTab("Share"))}>{t('Share.1')}</a></li>
+                <li  className={ isH.activeTabName==='View' ? 'active': null} ><a data-toggle="tab" onClick={() => dispatch(clickTab("View"))}>{t('View.1')}</a></li>
+                <li  className={ isH.activeTabName==='.' ? 'active': null}  style={{textAlign:'right'}}><a data-toggle="tab" onClick={() => dispatch(clickTab("."))}>.</a></li>
             </ul>
 
             <div className="tab-content">
@@ -49,6 +49,7 @@ function SysRibbonMenu(props) {
                 {isH.activeTabName==='View'&&<div>
                 <RibbonView />
                 </div>}
+               <div> Active tab name is  {isH.activeTabName}</div> 
             </div>
         </div>
     )
