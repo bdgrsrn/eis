@@ -10,3 +10,10 @@ export const clickTab = (tab_name) => {
         payload:tab_name
     };
 };
+
+export const chooseLanguage = (lang) => {
+    return {
+        type: 'CHOOSE_LANGUAGE',
+        payload:lang
+    };
+};

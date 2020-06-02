@@ -1,7 +1,8 @@
+
 const initialState={
     isHoveMenu:false,
     activeTabName:'Home',
-
+    lang: 'mn',
 }
 
 
@@ -16,6 +17,13 @@ const isHoveredReducer = (state = initialState,action)=>{
             return {
                 ...state,
                 activeTabName: action.payload
+            };
+
+        case 'CHOOSE_LANGUAGE':
+            return {
+                ...state,
+                lang: action.payload
+                
             };
             
         default:
